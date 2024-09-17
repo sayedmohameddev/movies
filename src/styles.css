@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.text-blue{
+    color: #007bff!important;
+}
+body {
+    overflow-x: hidden;
+    background-color: black;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+a{
+    text-decoration: none!important;
+}
+.rating-color{
+    color: #ffc908!important;
+}
+.data{
+    background-color: #222020;
+    width: 40px;
+    height: 20px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rate2{
+    font-size: 12px;
+}
+.dark{
+    color: #e2e2e2!important;
+    opacity: .75;
+    padding-top: 10px;
+    transition: all 0.2s ease-in-out;
+}
+.dark:hover{
+    opacity: 1!important;
+    
+}
+.sure img{
+    transition: all 0.3s ease-in-out;
+}
+.sure:hover img{
+transform: scale(1.04)!important;
+}
+.sure:hover .dark{
+    opacity: 1!important;
+}
+.owl-theme .owl-nav [class*=owl-] {
+    background-color: #222020;
+}

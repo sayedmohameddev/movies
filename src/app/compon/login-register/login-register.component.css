@@ -1,0 +1,33 @@
+main{
+    background: rgb(0, 0,0,0.7) url(../../../assets/pxfuel.jpg);
+    background-size:contain;
+    background-position: center center;
+    position: relative;
+    height: 100vh;
+    background-blend-mode: darken;
+
+}
+
+
+
+.title .header{
+    font-size: 3.1em!important;
+}
+.title .header2{
+    font-size: 1.5em;
+    color: #FFF;
+}
+.title{
+    height: 60vh;
+    padding-top: 200px;
+
+}
+.btn{
+    background-color: #E5A00D!important;
+    padding: 10px 25px 12px!important;
+    border-radius: 1000px!important;
+    transition: all 0.3s ease-in-out!important;
+}
+button:hover{
+background-color: #CE900C!important;
+}

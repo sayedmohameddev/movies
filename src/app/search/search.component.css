@@ -1,0 +1,35 @@
+.type:focus{
+    background-color: white!important;
+    color: #ed1703!important;
+    border-top-left-radius: 0.357rem!important;
+        border-top-right-radius: 0.357rem!important;
+        border: 1px solid transparent;
+        padding: 0;
+        margin: 0;
+    }
+    .type h6{
+        font-size: 17px!important;
+    }
+    .activ{
+        background-color: white!important;
+    color: #ed1703!important;
+    border-top-left-radius: 0.357rem!important;
+        border-top-right-radius: 0.357rem!important;
+        border: 1px solid transparent;
+        padding: 0;
+        margin: 0;
+    }
+       
+      .rate{
+        top: 3%;
+        right: 3%;
+        font-size: 13px!important;
+        border-radius: 50%;
+        background-color: rgba(222, 222, 222, 0.7);
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }

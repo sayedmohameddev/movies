@@ -1,0 +1,68 @@
+
+<div class="container pe-4">
+  
+   
+    <div class="row pt-5">
+        <div  class="pt-5 d-flex justify-content-center align-items-center  g-4 gx-4" >
+            <div  class="type text-white p-2 cursor-pointer" tabindex="0" id="airing_today" (click)="click($event)">
+                <h6   id="airing_today" >Airing today</h6>
+            </div>
+            <div class="type text-white p-2 cursor-pointer" tabindex="0" id="on_the_air" (click)="click($event)">
+                <h6 id="on_the_air">On the air</h6>
+            </div>
+            <div class="type text-white p-2 cursor-pointer " tabindex="0" id="popular" (click)="click($event)">
+                <h6 id="popular">Popular</h6>
+            </div>
+            <div class="type text-white p-2 cursor-pointer" tabindex="0" id="top_rated" (click)="click($event)">
+                <h6 id="top_rated">top rated</h6>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center py-4">
+            <div (click)="click5()">
+                <button class="btn bg-light ps-4 pe-4 m-2"><i class="fa-solid fa-arrow-left text-dark"></i></button>
+            </div>
+            <div (click)="click6()">
+                <button class="btn bg-light ps-4 pe-4 m-2"><i class="fa-solid fa-arrow-right text-dark"></i></button>
+            </div>
+            
+            
+        </div>
+        <ng-container *ngIf="isLoading">
+            <div class="col-md-2 col-sm-4 col-6 gx-3 gy-3 "  *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10]" >
+                <div class="border-round border-1 surface-border p-4 surface-car"  id="sd">
+                  <div class="flex mb-3">
+                      <div>
+                        <p-skeleton width="100%" height="150px"></p-skeleton>
+                        <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                        <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                        <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+    <ng-container *ngIf="!isLoading">
+        <div *ngFor="let item of movies2" class="col-md-2 col-sm-4 col-6 overflow-hidden" >
+            <div *ngIf="!isLoading">
+                <a [routerLink]="['/details',item.id , 'tv']">
+                <div class="my-2 position-relative">
+                    <div class="sure">
+                    <img [src]="'https://image.tmdb.org/t/p/w500' + item.poster_path" class="w-100 position-relative" alt="poster not found">
+                    <h5 class="h5 py-2 text-white text-center text-nowrap dark">{{item.name.split(' ').slice(0,4).join(' ')}}</h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                        <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{item.vote_average.toFixed(1)}}</span></h5>
+                      </div>
+                      <div>
+            <h4 class="data text-white">{{item.first_air_date.split('-').splice(0,1).join('-')}}</h4>
+                      </div>
+                      </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>   
+    </ng-container>
+    </div>
+    </div>
+    

@@ -1,0 +1,585 @@
+<main class="bg-black h-100 position-relative" >
+  <div class="row load" >
+    <div class="loading position-absolute top-0 start-0 w-100 h-100"  >
+       <div class="containee">
+         <div class="loader33">
+             <span class="circle"></span>
+             <span class="sqaure"></span>
+             <span class="triangle"></span>
+             <span class="circle"></span>
+         </div>
+       </div>
+     </div>
+    </div>
+   <ng-container >
+    <section class="" >  
+      <div class="row">
+      <owl-carousel-o [options]="customOptions2" class="col-md-12">
+        <ng-container *ngFor="let data2 of trendingmovies.slice(3,15)" >
+         
+          <ng-template carouselSlide class="carousel overflow-hidden position-relative"  >
+          <div class="position-relative">
+            <img [src]="'https://image.tmdb.org/t/p/original' + data2.backdrop_path
+              " class="w-100 h-100  " alt=""  id="show">
+            </div>
+            <div class="layer position-absolute"></div>
+            <div class="title position-absolute col-md-5">
+
+              <div class=" d-flex flex-column justify-content-center align-items-start  ">
+                <div class="py-3 headers">
+                    <span>Watch Free Movies With </span> <span class="text-warning">N</span><span>oxe.</span>
+                </div>
+                <div class="pb-4 headers2"> 
+                  <span>Stop searching for free movie websites and watch Noxe now.</span>
+                </div>
+              </div>
+              </div>
+          </ng-template>
+        </ng-container>
+     
+      </owl-carousel-o>
+    </div>
+        <div class="container-fluid py-5 px-3">
+            <div class="row g-4 ">
+              <div class="d-flex flex-row align-items-center ">
+              <div>
+                <h1 class="header text-white h3 ps-5 cursor-pointer">Trending Movies This Week</h1>
+              </div>
+              <div>
+                <p class="more ms-3 h6 mb-0 text-white" routerLink="/movies">- Explore All<span class="arrow"><i class="fa-solid fa-angles-right text-warning arrow ms-1"></i></span></p>
+              </div>
+            </div>
+                <owl-carousel-o [options]="customOptions" class="col-md-12">
+                        <ng-container *ngFor="let data of trendingmovies" >
+                         
+                          <ng-template carouselSlide class="overflow-hidden"  >
+                            <ng-container *ngIf="isLoading">
+                              <div class="col-md-12 "   >
+                                <div class="border-round border-1 surface-border p-4 surface-car"  >
+                                  <div class="flex mb-3">
+                                      <div>
+                                        <p-skeleton width="100%" height="150px"></p-skeleton>
+                                        <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                                        <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                                        <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </ng-container>
+                            <ng-container *ngIf="!isLoading">
+                            <a [routerLink]="['/details',data.id , data.media_type]">
+                            <div class="sure ">
+                            <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path
+                            " class="rounded-2 w-100"  >
+                            <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.title}}</h6>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div>
+                              <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{data.vote_average.toFixed(1)}}</span></h5>
+                            </div>
+                            <div>
+<h4 class="data text-white">{{data.release_date.split('-').splice(0,1).join('-')}}</h4>
+                            </div>
+                            </div>
+                          </div>
+                        </a>
+                            </ng-container>
+                          </ng-template>
+                        
+                        </ng-container>
+                    
+                      </owl-carousel-o>
+            </div>
+       
+      
+   
+<div class="row g-4">
+  <div class="d-flex flex-row align-items-center ">
+    <div>
+  <h1 class="header text-white h3 ps-5 cursor-pointer">Popular movies </h1>
+    </div>
+  <div>
+    <p class="more ms-3 h6 mb-0 text-white" routerLink="/movies">- Explore All<span class="arrow"><i class="fa-solid fa-angles-right text-warning arrow ms-1"></i></span></p>
+  </div>
+</div>
+  <owl-carousel-o [options]="customOptions" class="col-md-12" >
+
+      <ng-container *ngFor="let data of popularmovies">
+        <ng-template carouselSlide class="overflow-hidden" >
+          <ng-container *ngIf="isLoading">
+            <div class="col-md-12 "   >
+              <div class="border-round border-1 surface-border p-4 surface-car"  >
+                <div class="flex mb-3">
+                    <div>
+                      <p-skeleton width="100%" height="150px"></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">
+          <a [routerLink]="['/details',data.id , 'movie']">
+          <div class="sure ">
+          <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path
+
+          " class="rounded-2 w-100" >
+          <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.title}}</h6>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{data.vote_average.toFixed(1)}}</span></h5>
+          </div>
+          <div>
+<h4 class="data text-white">{{data.release_date.split('-').splice(0,1).join('-')}}</h4>
+          </div>
+          </div>
+        </div>
+      </a>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</div>
+<div class="row g-4">
+  <div class="d-flex flex-row align-items-center ">
+    <div>
+  <h1 class="header text-white h3 ps-5 cursor-pointer">Nowplaying movies </h1>
+  </div>
+  <div>
+    <p class="more ms-3 h6 mb-0 text-white" routerLink="/movies">- Explore All<span class="arrow"><i class="fa-solid fa-angles-right text-warning arrow ms-1"></i></span></p>
+  </div>
+</div>
+  <owl-carousel-o [options]="customOptions" class="col-md-12" >
+
+      <ng-container *ngFor="let data of nowplayingmovies">
+        <ng-template carouselSlide class="overflow-hidden" >
+          <ng-container *ngIf="isLoading">
+            <div class="col-md-12 "   >
+              <div class="border-round border-1 surface-border p-4 surface-car"  >
+                <div class="flex mb-3">
+                    <div>
+                      <p-skeleton width="100%" height="150px"></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">
+          <a [routerLink]="['/details',data.id , 'movie']">
+          <div class="sure">
+          <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path
+
+          " class="rounded-2 w-100" >
+          <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.title}}</h6>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{data.vote_average.toFixed(1)}}</span></h5>
+          </div>
+          <div>
+<h4 class="data text-white">{{data.release_date.split('-').splice(0,1).join('-')}}</h4>
+          </div>
+          </div>
+          </div>
+          </a>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</div>
+<div class="row g-4">
+  <div class="d-flex flex-row align-items-center ">
+    <div>
+  <h1 class="header text-white h3 ps-5 cursor-pointer">Upcoming movies </h1>
+    </div>
+  <div>
+    <p class="more ms-3 h6 mb-0 text-white" routerLink="/movies">- Explore All<span class="arrow"><i class="fa-solid fa-angles-right text-warning arrow ms-1"></i></span></p>
+  </div>
+</div>
+  <owl-carousel-o [options]="customOptions" class="col-md-12" >
+
+      <ng-container *ngFor="let data of upcomingmovies">
+        <ng-template carouselSlide class="overflow-hidden" >
+          <ng-container *ngIf="isLoading">
+            <div class="col-md-12 "   >
+              <div class="border-round border-1 surface-border p-4 surface-car"  >
+                <div class="flex mb-3">
+                    <div>
+                      <p-skeleton width="100%" height="150px"></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">
+          <a [routerLink]="['/details',data.id , 'movie']">
+          <div class="sure">
+          <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path
+
+          " class="rounded-2 w-100" >
+          <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.title}}</h6>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{data.vote_average.toFixed(1)}}</span></h5>
+          </div>
+          <div>
+<h4 class="data text-white">{{data.release_date.split('-').splice(0,1).join('-')}}</h4>
+          </div>
+          </div>
+          </div>
+          </a>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</div>
+<div class="row g-4">
+  <div class="d-flex flex-row align-items-center ">
+    <div>
+  <h1 class="header text-white h3 ps-5 cursor-pointer">Top rated movies </h1>
+    </div>
+  <div>
+    <p class="more ms-3 h6 mb-0 text-white" routerLink="/movies">- Explore All<span class="arrow"><i class="fa-solid fa-angles-right text-warning arrow ms-1"></i></span></p>
+  </div>
+</div>
+  <owl-carousel-o [options]="customOptions" class="col-md-12" >
+
+      <ng-container *ngFor="let data of topratedmovies">
+        <ng-template carouselSlide class="overflow-hidden" >
+          <ng-container *ngIf="isLoading">
+            <div class="col-md-12 "   >
+              <div class="border-round border-1 surface-border p-4 surface-car"  >
+                <div class="flex mb-3">
+                    <div>
+                      <p-skeleton width="100%" height="150px"></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">
+          <a [routerLink]="['/details',data.id , 'movie']">
+          <div class="sure">
+          <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path
+
+          " class="rounded-2 w-100" >
+          <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.title}}</h6>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{data.vote_average.toFixed(1)}}</span></h5>
+          </div>
+          <div>
+<h4 class="data text-white">{{data.release_date.split('-').splice(0,1).join('-')}}</h4>
+          </div>
+          </div>
+        </div>
+          </a>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</div>
+<div class="row g-4">
+  <div class="d-flex flex-row align-items-center ">
+    <div>
+  <h1 class="header text-white h3 ps-5 cursor-pointer">Trending Tv Show This Week</h1>
+    </div>
+  <div>
+    <p class="more ms-3 h6 mb-0 text-white" routerLink="/tv">- Explore All<span class="arrow"><i class="fa-solid fa-angles-right text-warning arrow ms-1"></i></span></p>
+  </div>
+</div>
+  <owl-carousel-o [options]="customOptions" class="col-md-12" >
+
+      <ng-container *ngFor="let data of trendingtv">
+        <ng-template carouselSlide class="overflow-hidden" >
+          <ng-container *ngIf="isLoading">
+            <div class="col-md-12 "   >
+              <div class="border-round border-1 surface-border p-4 surface-car"  >
+                <div class="flex mb-3">
+                    <div>
+                      <p-skeleton width="100%" height="150px"></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">
+          <a [routerLink]="['/details',data.id , data.media_type]">
+          <div class="sure ">
+          <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path
+          " class="rounded-2 w-100" >
+          <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.name}}</h6>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{data.vote_average.toFixed(1)}}</span></h5>
+          </div>
+          <div>
+<h4 class="data text-white">{{data.first_air_date.split('-').splice(0,1).join('-')}}</h4>
+          </div>
+          </div>
+          </div>
+          </a>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</div>
+<div class="row g-4">
+  <div class="d-flex flex-row align-items-center ">
+    <div>
+  <h1 class="header text-white h3 ps-5 cursor-pointer">Airing Today Tv Shows</h1>
+    </div>
+  <div>
+    <p class="more ms-3 h6 mb-0 text-white" routerLink="/tv">- Explore All<span class="arrow"><i class="fa-solid fa-angles-right text-warning arrow ms-1"></i></span></p>
+  </div>
+</div>
+  <owl-carousel-o [options]="customOptions" class="col-md-12" >
+
+      <ng-container *ngFor="let data of airingtodaytv">
+        <ng-template carouselSlide class="overflow-hidden" >
+          <ng-container *ngIf="isLoading">
+            <div class="col-md-12 "   >
+              <div class="border-round border-1 surface-border p-4 surface-car"  >
+                <div class="flex mb-3">
+                    <div>
+                      <p-skeleton width="100%" height="150px"></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">
+          <a [routerLink]="['/details',data.id , 'tv']">
+          <div class="sure">
+          <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path
+
+          " class="rounded-2 w-100" >
+          <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.name}}</h6>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{data.vote_average.toFixed(1)}}</span></h5>
+          </div>
+          <div>
+<h4 class="data text-white">{{data.first_air_date.split('-').splice(0,1).join('-')}}</h4>
+          </div>
+          </div>
+        </div>
+          </a>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</div>
+<div class="row g-4">
+  <div class="d-flex flex-row align-items-center ">
+    <div>
+  <h1 class="header text-white h3 ps-5 cursor-pointer">On The Air Tv Shows</h1>
+    </div>
+  <div>
+    <p class="more ms-3 h6 mb-0 text-white" routerLink="/tv">- Explore All<span class="arrow"><i class="fa-solid fa-angles-right text-warning arrow ms-1"></i></span></p>
+  </div>
+</div>
+  <owl-carousel-o [options]="customOptions" class="col-md-12" >
+
+      <ng-container *ngFor="let data of ontheairtv">
+        <ng-template carouselSlide class="overflow-hidden" >
+          <ng-container *ngIf="isLoading">
+            <div class="col-md-12 "   >
+              <div class="border-round border-1 surface-border p-4 surface-car"  >
+                <div class="flex mb-3">
+                    <div>
+                      <p-skeleton width="100%" height="150px"></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">
+          <a [routerLink]="['/details',data.id , 'tv']">
+          <div class="sure">
+          <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path
+
+          " class="rounded-2 w-100" >
+          <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.name}}</h6>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{data.vote_average.toFixed(1)}}</span></h5>
+          </div>
+          <div>
+<h4 class="data text-white">{{data.first_air_date.split('-').splice(0,1).join('-')}}</h4>
+          </div>
+          </div>
+        </div>
+          </a>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</div>
+<div class="row g-4">
+  <div class="d-flex flex-row align-items-center ">
+    <div>
+  <h1 class="header text-white h3 ps-5 cursor-pointer">Popular Tv Shows</h1>
+    </div>
+  <div>
+    <p class="more ms-3 h6 mb-0 text-white" routerLink="/tv">- Explore All<span class="arrow"><i class="fa-solid fa-angles-right text-warning arrow ms-1"></i></span></p>
+  </div>
+</div>
+  <owl-carousel-o [options]="customOptions" class="col-md-12" >
+
+      <ng-container *ngFor="let data of populartv">
+        <ng-template carouselSlide class="overflow-hidden" >
+          <ng-container *ngIf="isLoading">
+            <div class="col-md-12 "   >
+              <div class="border-round border-1 surface-border p-4 surface-car"  >
+                <div class="flex mb-3">
+                    <div>
+                      <p-skeleton width="100%" height="150px"></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">
+          <a [routerLink]="['/details',data.id , 'tv']">
+          <div class="sure">
+          <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path
+
+          " class="rounded-2 w-100" >
+          <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.name}}</h6>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{data.vote_average.toFixed(1)}}</span></h5>
+          </div>
+          <div>
+<h4 class="data text-white">{{data.first_air_date.split('-').splice(0,1).join('-')}}</h4>
+          </div>
+          </div>
+        </div>
+          </a>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</div>
+<div class="row g-4">
+  <div class="d-flex flex-row align-items-center ">
+    <div>
+  <h1 class="header text-white h3 ps-5 cursor-pointer">Top Rated Tv Shows</h1>
+    </div>
+  <div>
+    <p class="more ms-3 h6 mb-0 text-white" routerLink="/tv">- Explore All<span class="arrow"><i class="fa-solid fa-angles-right text-warning arrow ms-1"></i></span></p>
+  </div>
+</div>
+  <owl-carousel-o [options]="customOptions" class="col-md-12" >
+
+      <ng-container *ngFor="let data of topratedtv">
+        <ng-template carouselSlide class="overflow-hidden" >
+          <ng-container *ngIf="isLoading">
+            <div class="col-md-12 "   >
+              <div class="border-round border-1 surface-border p-4 surface-car"  >
+                <div class="flex mb-3">
+                    <div>
+                      <p-skeleton width="100%" height="150px"></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">
+          <a [routerLink]="['/details',data.id , 'tv']">
+          <div class="sure">
+          <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path
+
+          " class="rounded-2 w-100" >
+          <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.name}}</h6>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h5 class="rate2 "><span><i class="fas fa-star rating-color"></i></span><span class="text-white ps-1">{{data.vote_average.toFixed(1)}}</span></h5>
+          </div>
+          <div>
+<h4 class="data text-white">{{data.first_air_date.split('-').splice(0,1).join('-')}}</h4>
+          </div>
+          </div>
+        </div>
+          </a>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</div>
+<div class="row g-4">
+  <h1 class="header text-white h3 ps-5 cursor-pointer">Trending People This Week</h1>
+  <owl-carousel-o [options]="customOptions" class="col-md-12" >
+
+      <ng-container *ngFor="let data of trendingperson">
+        <ng-template carouselSlide class="overflow-hidden" >
+          <ng-container *ngIf="isLoading">
+            <div class="col-md-12 "   >
+              <div class="border-round border-1 surface-border p-4 surface-car"  >
+                <div class="flex mb-3">
+                    <div>
+                      <p-skeleton width="100%" height="150px"></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                      <p-skeleton width="100%" styleClass="my-2" height="25px" ></p-skeleton>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isLoading">
+          <a [routerLink]="['/details',data.id , data.media_type]">
+          <div class="sure">
+          <img height="270" [src]="'https://image.tmdb.org/t/p/w500' + data.profile_path
+
+          " class="rounded-2 w-100" >
+          <h6 class="fw-bolder overflow-hidden text-center dark text-nowrap">{{data.name}}</h6>
+         
+        </div>
+        </a>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</div>
+</div>
+
+    </section>
+  </ng-container>
+</main>

@@ -1,0 +1,138 @@
+.ohya{
+    height: 80vh!important;
+}
+.header{
+    position: relative;
+   
+}
+.headers{
+    position: relative;
+    font-size: 50px!important;
+    color: white;
+    font-weight: 700;
+}
+.headers2{
+   
+    font-size: 20px!important;
+    color: white;
+    font-weight: 600;
+}
+@media (max-width:700px) {
+    .headers{
+        font-size: 30px!important;
+    }
+    .headers2{
+        font-size: 13px!important;
+        margin-bottom: 90!important;
+    }
+    .title{
+        padding-bottom: 40px!important;
+    }
+}
+.owl-theme .owl-nav [class*=owl-]{
+    display: none!important;
+}
+.owl-carousel .owl-nav .owl-next{
+    display: none!important;
+}
+.dark{
+    color: #e2e2e2!important;
+    opacity: .75;
+    padding-top: 10px;
+    transition: all 0.2s ease-in-out;
+}
+.dark:hover{
+    opacity: 1!important;
+    
+}
+.sure img{
+    transition: all 0.3s ease-in-out;
+}
+.sure:hover img{
+transform: scale(1.04)!important;
+}
+.sure:hover .dark{
+    opacity: 1!important;
+}
+.rate{
+    top: 3%;
+    right: 3%;
+    font-size: 13px!important;
+    border-radius: 50%;
+    background-color: rgba(222, 222, 222, 0.7);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+img{
+    position: relative;
+}
+.title{
+    height: 100vh!important;
+    height: 100%;
+   position: absolute!important;
+   left: 10%;
+   top: 30%;
+   
+}
+.title h1{
+    font-size: 50px!important;
+    font-weight: 700!important;
+}
+.title p{
+    font-size: 20px!important;
+    font-weight: 700!important;
+}
+p{
+    color: #d5d5d5!important
+}
+.layer{
+    background-image:linear-gradient(
+        to bottom,
+        rgb(5 0 0 / 63%) 0%,
+        rgb(35 0 0 / 50%) 30%,
+        rgb(0, 0, 0) 99%
+      );
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+}
+.more{
+    cursor: pointer;
+}
+a{
+    text-decoration: none!important;
+}
+h5{
+    color: black!important;
+}
+.data{
+    background-color: #222020;
+    width: 40px;
+    height: 20px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rate2{
+    font-size: 12px;
+}
+@keyframes moving {
+    from{
+left: 0px;
+    }
+    to{
+      left:7px;  
+    }
+}
+.arrow{
+    position: relative;
+    animation: moving infinite 1.5s  linear ;
+}
